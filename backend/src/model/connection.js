@@ -1,11 +1,13 @@
 import { createPool } from 'mysql2/promise';
+import dotenv from 'dotenv';
 
-//DICA: para lembrar o nome de cada propriedade objeto olhar as conexões do Workbench.
+dotenv.config();
+// DICA: para lembrar o nome de cada propriedade objeto olhar as conexões do Workbench.
 
 export default createPool({
-  host: 'localhost',
-  password: 'password',
-  port: '3306',
+  host: process.env.HOST,
+  password: process.env.PASSWORD,
+  port: process.env.PORT,
   user: 'root',
-  database: 'Estudos',
-})
+  database: process.env.DATABASE,
+});

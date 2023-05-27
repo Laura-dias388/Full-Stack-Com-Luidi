@@ -1,7 +1,11 @@
-import FetchUsers from "./components/FetchUsers"
+import FetchUsers from './components/FetchUsers';
+import PostUsers from './components/PostUsers';
 
 export default function App() {
   return (
-    <FetchUsers />
-  )
+    <div>
+      <PostUsers />,
+      <FetchUsers />
+    </div>
+  );
 }
