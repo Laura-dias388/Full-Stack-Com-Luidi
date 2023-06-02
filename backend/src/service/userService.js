@@ -5,7 +5,7 @@ const findUsers = async () => {
   if (!userList.length) {
     return { type: 'error', message: 'Users not found' };
   }
-  return { type: null, message: userList.map(({ name }) => name) };
+  return { type: null, message: userList };
 };
 
 const createUsers = async ({ name }) => {
@@ -16,7 +16,25 @@ const createUsers = async ({ name }) => {
   return { type: null, message: `User ${name} created sucessfully` };
 };
 
+const deleteUsers = async ({ id }) => {
+  const affectedRows = await userModel.deleteUsers(id);
+  if (!affectedRows) {
+    return { type: 'error', message: 'User not deleted' };
+  }
+  return { type: null, message: 'User deleted sucessfully' };
+};
+
+const updateUser = async (name, id) => {
+  const { affectedRows } = await userModel.updateUser(name, id);
+  if (!affectedRows) {
+    return { type: 'error', message: 'User not updated' };
+  }
+  return { type: null, message: `The user has been updated to ${name}` };
+};
+
 export default {
   findUsers,
   createUsers,
+  deleteUsers,
+  updateUser,
 };
