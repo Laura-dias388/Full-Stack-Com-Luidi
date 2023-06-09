@@ -1,4 +1,6 @@
-const userValidate = (req, res, next) => {
+import { Request, Response, NextFunction } from 'express';
+
+const userValidate = (req: Request, res: Response, next: NextFunction): Response | void => {
   const { name } = req.body;
   if (!name) return res.status(400).json({ message: 'User is required' });
   if (name.match(/^[0-9]/)) return res.status(422).json({ message: 'User needs to be a text' });

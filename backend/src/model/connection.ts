@@ -1,4 +1,4 @@
-import { createPool } from 'mysql2/promise';
+import { createPool, PoolOptions } from 'mysql2/promise';
 import dotenv from 'dotenv';
 
 dotenv.config();
@@ -10,4 +10,4 @@ export default createPool({
   port: process.env.PORT,
   user: 'root',
   database: process.env.DATABASE,
-});
+} as PoolOptions);
