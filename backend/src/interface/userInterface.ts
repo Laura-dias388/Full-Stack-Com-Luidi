@@ -1,6 +1,11 @@
-import { RowDataPacket } from 'mysql2';
-
-export default interface IUser {
+export interface IUser {
   type: string | null,
-  message: string | RowDataPacket[],
+  message: string,
+}
+
+export interface IResult {
+  dataValues: {
+    id: number,
+    name: string,
+  },
 }
