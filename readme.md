@@ -1,5 +1,5 @@
 
-# Requisitos do projeto.
+# Requisitos do projeto..
 
 ## O que será desenvolvido?
 
