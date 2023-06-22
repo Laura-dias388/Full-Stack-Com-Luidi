@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 export default function FetchUsers() {
   // Tudo que está acima do return é javascript
   const INITIAL_PLACE = 'Digite seu nome';
+  const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001';
 
   const [usuarios, setUsuarios] = useState([]);
   const [name, setName] = useState('');
@@ -13,7 +14,7 @@ export default function FetchUsers() {
 
   const fetchUsers = async () => {
     try {
-      const response = await fetch('http://localhost:3001/users');
+      const response = await fetch(`${API_URL}/users`);
       const { message } = await response.json();
       if (!response.ok) throw new Error(message);
       setUsuarios(message);
@@ -31,7 +32,7 @@ export default function FetchUsers() {
   const postUser = async (event) => {
     event.preventDefault();
     try {
-      const response = await fetch('http://localhost:3001/users', {
+      const response = await fetch(`${API_URL}/users`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name }),
@@ -50,7 +51,7 @@ export default function FetchUsers() {
   };
 
   const deleteUser = async (id) => {
-    const response = await fetch(`http://localhost:3001/users/${id}`, { method: 'DELETE' });
+    const response = await fetch(`${API_URL}/users/${id}`, { method: 'DELETE' });
     const { message } = await response.json();
     console.log(message);
     fetchUsers();
@@ -64,7 +65,7 @@ export default function FetchUsers() {
     event.preventDefault();
     console.log(newUser);
     const { id, userUpdated } = newUser;
-    const response = await fetch(`http://localhost:3001/users/${id}`, {
+    const response = await fetch(`${API_URL}/users/${id}`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ name: userUpdated }),
