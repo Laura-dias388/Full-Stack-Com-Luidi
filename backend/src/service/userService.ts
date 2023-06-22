@@ -1,7 +1,7 @@
-const { User } = require('../database/models');
+import User from '../database/models/userModel';
 import { IUser, IResult } from '../interface/userInterface';
 
-const findUsers = async (): Promise<IUser> => {
+const findUsers = async () => {
   const data = await User.findAll();
   const userList = data.map(({ dataValues }: IResult) => dataValues);
   if (!userList.length) return { type: 'error', message: 'Users not found' };
