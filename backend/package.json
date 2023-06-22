@@ -4,7 +4,8 @@
   "main": "src/index.ts",
   "type": "commonjs",
   "scripts": {
-    "start": "npx tsc && node dist/index.js",
+    "build": "npx tsc",
+    "start": "node dist/index.js",
     "dev": "nodemon --exec ts-node src/index.ts",
     "lint": "eslint . --fix",
     "restart": "npx tsc && npx sequelize db:drop && npx sequelize db:create && npx sequelize db:migrate && npx sequelize db:seed:all",
