@@ -1,0 +1,110 @@
+.sectionContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3rem 0;
+  margin: 0 auto;
+  gap: 3rem;
+  width: 80vw;
+}
+
+.form {
+  border: 1px solid rgba(2, 7, 20, 0.905);
+  background-color: #f9f4f4;
+  box-shadow: 8px 8px 50px 0px gray;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 8px;
+  padding: 1rem;
+  gap: 1rem;
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+  width: 100%;
+}
+
+
+.input {
+  background-color: #f9f4f4;
+  border: none;
+  padding: 1rem 0;
+  border-bottom: 2px solid black;
+  width: 100%;
+  outline: none;
+}
+
+.button {
+  background-color: black;
+  color: #f9f4f4;
+  padding: 1rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.table th {
+  padding: 0.5rem;
+}
+
+.tableContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem
+}
+
+.mainContainer {
+  width: 100%;
+}
+
+.formContainer {
+  width: 100%;
+  display: flex;
+  gap: 1rem;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+
+}
+
+.table {
+  text-align: center;
+  border-collapse: collapse;
+  width: 100%;
+  background-color: #f9f4f4;
+}
+
+.table th, .table td {
+  border: 2px solid black;
+}
+
+.tableDeletBtn {
+  background-color: #f9f4f4;
+  width: 100%;
+  padding: 0.5rem;
+  border: none;
+  transition: 300ms ease-out;
+}
+
+.tableDeletBtn:hover {
+  background-color: rgb(215, 56, 7);
+  color: white;
+  cursor: pointer;
+}
+
+.styleSelect {
+  background-color: #f9f4f4;
+  width: 100%;
+  border: none;
+  outline: none;
+  padding: 1rem 0;
+  appearance: none;
+  border-bottom: 2px solid black;
+  cursor: pointer;
+}
+
+@media (max-width: 1270px) {
+  .formContainer {
+    justify-content: center;
+  }
+}
