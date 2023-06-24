@@ -5,5 +5,9 @@
 }
 
 body {
-  background-color: rgb(255, 255, 255);
+  background-color: rgb(34, 34, 34);
+}
+
+input:-webkit-autofill {
+  box-shadow: 0 0 0 30px #f9f4f4 inset; /* Define a cor de fundo desejada */
 }

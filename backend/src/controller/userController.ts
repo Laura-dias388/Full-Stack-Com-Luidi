@@ -4,9 +4,9 @@ import userService from '../service/userService';
 const SERVER_ERROR = 'Internal server error';
 const HTTP_ERROR = 500;
 
-const findUsers = async (_req: Request, res: Response): Promise<Response> => {
+const findUsers = async (req: Request, res: Response): Promise<Response> => {
   try {
-    const { type, message } = await userService.findUsers();
+    const { type, message } = await userService.findUsers(Number(req.query.page));
     if (type) return res.status(404).json({ message });
     return res.status(200).json({ message });
   } catch {

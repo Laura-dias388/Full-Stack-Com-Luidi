@@ -12,10 +12,12 @@ export default function FetchUsers() {
   const [ error, setError ] = useState('');
   const [ placeholder, setPlaceholder ] = useState(INITIAL_PLACE);
   const [ newUser, setNewUser ] = useState({ id: '', userUpdated: '' });
+  const [ page, setPage ] = useState(0);
+  console.log(page, 'page');
 
   const fetchUsers = async () => {
     try {
-      const response = await fetch(`${API_URL}/users`);
+      const response = await fetch(`${API_URL}/users?page=${page}`);
       const { message } = await response.json();
       if (!response.ok) throw new Error(message);
       setUsuarios(message);
@@ -28,7 +30,7 @@ export default function FetchUsers() {
 
   useEffect(() => { // é chamado ao entrar na página pela primeira vez
     fetchUsers();
-  }, []);
+  }, [ page ]);// atualiza a pagina em que esta
 
   const postUser = async (event) => {
     event.preventDefault();
@@ -76,6 +78,18 @@ export default function FetchUsers() {
     fetchUsers();
   };
 
+  const pageIncremente = () => {
+    if (usuarios.length) {
+    setPage((prevState) => prevState + 1);
+    }
+  }
+
+  const pageDecremente = () => {
+    if (page > 0) {
+      setPage((prevState) => prevState - 1);
+    }
+  }
+
   return ( // alterou estado o return é chamado
     // Tudo que está dentro do return é html,
     //  ao abrir um objeto dentro de uma tag é possivel usar javascript
@@ -111,7 +125,7 @@ export default function FetchUsers() {
       </section>
       <section className={ styles.mainContainer }>
         { !isFetching ? (
-          <section>
+          <section className={ styles.errorContainer }>
             { usuarios.length ? (
               <section className={ styles.tableContainer }>
                 <table className={ styles.table }>
@@ -137,8 +151,12 @@ export default function FetchUsers() {
                 </table>
               </section>
             ) : (
-              <span>{ error }</span>
+              <span className={ styles.errorSpan }>{ error }</span>
             ) }
+            <section className={ styles.pageContainer }>
+              <button className={ styles.pageBtn } onClick={ pageDecremente }>Prev</button>
+              <button className={ styles.pageBtn } onClick={ pageIncremente }>Next</button>
+            </section>
           </section>
         ) : (
           <span>Loading...</span>

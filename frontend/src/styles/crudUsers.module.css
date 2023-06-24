@@ -23,7 +23,6 @@
   width: 100%;
 }
 
-
 .input {
   background-color: #f9f4f4;
   border: none;
@@ -51,7 +50,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2rem
+  gap: 2rem;
+  width: 100%;
 }
 
 .mainContainer {
@@ -87,7 +87,7 @@
 }
 
 .tableDeletBtn:hover {
-  background-color: rgb(215, 56, 7);
+  background-color: rgb(255, 38, 0);
   color: white;
   cursor: pointer;
 }
@@ -101,6 +101,43 @@
   appearance: none;
   border-bottom: 2px solid black;
   cursor: pointer;
+}
+
+.pageContainer {
+  display: flex;
+  gap: 1rem;
+}
+
+.pageBtn {
+  font-size: medium;
+  border-radius: 5px;
+  background-color: white;
+  border: 1px solid black;
+  cursor: pointer;
+  padding: 1rem 2rem;
+  transition: 500ms;
+}
+
+.pageBtn:first-child:hover {
+  background-color: rgb(242, 8, 8);
+  color: white;
+}
+
+.pageBtn:last-child:hover {
+  background-color: rgb(0, 46, 248);
+  color: white;
+}
+
+.errorContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.errorSpan {
+  font-size: 1.5rem;
+  color: white;
 }
 
 @media (max-width: 1270px) {
