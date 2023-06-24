@@ -7,7 +7,7 @@ import errorHandle from './middlewares/errorHandle';
 dotenv.config();
 
 const app = express();
-app.use(cors());
+app.use(cors({ origin: 'https://commerce-fullstack.vercel.app' }));
 app.use(express.json());
 
 const port = process.env.PORT;

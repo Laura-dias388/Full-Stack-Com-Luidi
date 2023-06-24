@@ -13,7 +13,6 @@ export default function FetchUsers() {
   const [ placeholder, setPlaceholder ] = useState(INITIAL_PLACE);
   const [ newUser, setNewUser ] = useState({ id: '', userUpdated: '' });
   const [ page, setPage ] = useState(0);
-  console.log(page, 'page');
 
   const fetchUsers = async () => {
     try {
